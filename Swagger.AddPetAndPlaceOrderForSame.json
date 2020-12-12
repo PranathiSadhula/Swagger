@@ -1,0 +1,115 @@
+{
+	"info": {
+		"_postman_id": "9c42b7f0-fe04-45c8-b1fe-09592ea41a08",
+		"name": "Swagger.AddPetAndPlaceOrderForSame",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "AddANewPetToTheStore",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "fd463c87-e478-4d2c-b329-8d59c9c9a930",
+						"exec": [
+							"var resp = pm.response.json();\r",
+							"\r",
+							"console.log(resp)\r",
+							"\r",
+							"pm.environment.set(\"pet_id\", resp.id);\r",
+							"console.log(pm.environment.get(\"pet_id\"));\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": 0,\r\n  \"category\": {\r\n    \"id\": 0,\r\n    \"name\": \"Beckiee\"\r\n  },\r\n  \"name\": \"doggie\",\r\n  \"photoUrls\": [\r\n    \"string\"\r\n  ],\r\n  \"tags\": [\r\n    {\r\n      \"id\": 0,\r\n      \"name\": \"This is a new pet added\"\r\n    }\r\n  ],\r\n  \"status\": \"available\"\r\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/pet",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"pet"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PlaceAnOrderForPet",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f9ccfb2d-1c00-4523-8fc9-c8d62cb07f48",
+						"exec": [
+							"var resp = pm.response.json();\r",
+							"\r",
+							"console.log(pm.response.json())\r",
+							"pm.environment.set(\"order_id\", resp.id);\r",
+							"console.log(pm.environment.get(\"order_id\"));\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": 10,\r\n  \"petId\": \"{{pet_id}}\",\r\n  \"quantity\": 0,\r\n  \"shipDate\": \"2020-12-11T13:46:31.349Z\",\r\n  \"status\": \"placed\",\r\n  \"complete\": true\r\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/store/order",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"store",
+						"order"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "apikey",
+		"apikey": [
+			{
+				"key": "value",
+				"value": "special-key",
+				"type": "string"
+			},
+			{
+				"key": "key",
+				"value": "SWAGGER_API_KEY",
+				"type": "string"
+			}
+		]
+	},
+	"protocolProfileBehavior": {}
+}
