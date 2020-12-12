@@ -1,0 +1,330 @@
+{
+	"info": {
+		"_postman_id": "a6d647cf-f30f-4623-b7ac-57b7d9562093",
+		"name": "Swagger",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "AddANewPetToTheStore",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "550ebc55-e2ba-4e58-8f2e-28b2644aa02a",
+						"exec": [
+							"var resp = pm.response.json();\r",
+							"\r",
+							"console.log(resp)\r",
+							"\r",
+							"pm.environment.set(\"pet_id\", resp.id);\r",
+							"console.log(pm.environment.get(\"pet_id\"));\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": 0,\r\n  \"category\": {\r\n    \"id\": 0,\r\n    \"name\": \"Beckiee\"\r\n  },\r\n  \"name\": \"doggie\",\r\n  \"photoUrls\": [\r\n    \"string\"\r\n  ],\r\n  \"tags\": [\r\n    {\r\n      \"id\": 0,\r\n      \"name\": \"This is a new pet added\"\r\n    }\r\n  ],\r\n  \"status\": \"available\"\r\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/pet",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"pet"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "FIndPetByStatus",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f86d0e4a-7f0c-43b0-bca0-aa1e90364775",
+						"exec": [
+							"var resp = pm.response.json();\r",
+							"\r",
+							"resp.forEach(function(entry){\r",
+							"    pm.environment.set(\"pet_id\", entry.id);\r",
+							"   \r",
+							"});\r",
+							"\r",
+							"console.log(pm.environment.get(\"pet_id\"));\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/pet/findByStatus?status={{status}}",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"pet",
+						"findByStatus"
+					],
+					"query": [
+						{
+							"key": "status",
+							"value": "{{status}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PlaceAnOrderForPet",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "88fc615d-0302-46e8-a0e3-81e0bc397041",
+						"exec": [
+							"var resp = pm.response.json();\r",
+							"\r",
+							"console.log(pm.response.json())\r",
+							"pm.environment.set(\"order_id\", resp.id);\r",
+							"console.log(pm.environment.get(\"order_id\"));\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": 10,\r\n  \"petId\": \"{{pet_id}}\",\r\n  \"quantity\": 0,\r\n  \"shipDate\": \"2020-12-11T13:46:31.349Z\",\r\n  \"status\": \"placed\",\r\n  \"complete\": true\r\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/store/order",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"store",
+						"order"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "FindPurchaseOrderById",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e192c003-6673-45f3-ad58-70902d2d4638",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/store/order/10",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"store",
+						"order",
+						"10"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeletePurchaseOrderById",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "dc6bf6a5-07c3-400c-8ce0-fabd77c19aad",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/store/order/1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"store",
+						"order",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateExistingPet",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": {{pet_id}},\r\n    \"category\": {\r\n        \"id\": 0,\r\n        \"name\": \"Updated Pet\"\r\n    },\r\n    \"name\": \"doggie\",\r\n    \"photoUrls\": [\r\n        \"string\"\r\n    ],\r\n    \"tags\": [\r\n        {\r\n            \"id\": 0,\r\n            \"name\": \"Hey! Pettiee Your Name is Updated!!!!!!\"\r\n        }\r\n    ],\r\n    \"status\": \"available\"\r\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/pet",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"pet"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateExistingPetUsingFormData",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "petId",
+							"value": "{{pet_id}}",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "Updating using form data",
+							"type": "text"
+						},
+						{
+							"key": "status",
+							"value": "{{status}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/pet/{{pet_id}}",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"pet",
+						"{{pet_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeletePet",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/pet/{{pet_id}}",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"pet",
+						"{{pet_id}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "apikey",
+		"apikey": [
+			{
+				"key": "value",
+				"value": "special-key",
+				"type": "string"
+			},
+			{
+				"key": "key",
+				"value": "SWAGGER_API_KEY",
+				"type": "string"
+			}
+		]
+	},
+	"protocolProfileBehavior": {}
+}
