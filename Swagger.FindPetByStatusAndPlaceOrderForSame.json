@@ -1,0 +1,62 @@
+{
+	"id": "37556b64-5485-4717-9060-661c4bbcb478",
+	"name": "Swagger",
+	"timestamp": "2020-12-12T10:38:22.346Z",
+	"collection_id": "a6d647cf-f30f-4623-b7ac-57b7d9562093",
+	"folder_id": 0,
+	"environment_id": "38b6bc25-4d00-46c9-b78a-8a7722c84d93",
+	"totalPass": 0,
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "870ff0fd-ed1c-4a33-8fde-0a7d261eda8b",
+			"name": "FIndPetByStatus",
+			"url": "https://petstore.swagger.io/v2/pet/findByStatus?status=available",
+			"time": 1592,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				1592
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "6593771f-5efc-40f2-8486-a77273af5655",
+			"name": "PlaceAnOrderForPet",
+			"url": "https://petstore.swagger.io/v2/store/order",
+			"time": 550,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				550
+			],
+			"allTests": [
+				{}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 2142,
+	"collection": {
+		"requests": [
+			{
+				"id": "870ff0fd-ed1c-4a33-8fde-0a7d261eda8b",
+				"method": "GET"
+			},
+			{
+				"id": "6593771f-5efc-40f2-8486-a77273af5655",
+				"method": "POST"
+			}
+		]
+	}
+}
