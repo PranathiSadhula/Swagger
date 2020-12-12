@@ -1,62 +1,138 @@
 {
-	"id": "37556b64-5485-4717-9060-661c4bbcb478",
-	"name": "Swagger",
-	"timestamp": "2020-12-12T10:38:22.346Z",
-	"collection_id": "a6d647cf-f30f-4623-b7ac-57b7d9562093",
-	"folder_id": 0,
-	"environment_id": "38b6bc25-4d00-46c9-b78a-8a7722c84d93",
-	"totalPass": 0,
-	"totalFail": 0,
-	"results": [
+	"info": {
+		"_postman_id": "264a9c9e-f310-437e-b315-1eec90913255",
+		"name": "Swagger.FindPetByStatusAndPlaceOrderForSame",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
 		{
-			"id": "870ff0fd-ed1c-4a33-8fde-0a7d261eda8b",
 			"name": "FIndPetByStatus",
-			"url": "https://petstore.swagger.io/v2/pet/findByStatus?status=available",
-			"time": 1592,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {},
-			"testPassFailCounts": {},
-			"times": [
-				1592
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "6e2e1bb3-87ea-41d7-a7e8-f509883c4fe9",
+						"exec": [
+							"var resp = pm.response.json();\r",
+							"\r",
+							"resp.forEach(function(entry){\r",
+							"    pm.environment.set(\"pet_id\", entry.id);\r",
+							"   \r",
+							"});\r",
+							"\r",
+							"console.log(pm.environment.get(\"pet_id\"));\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
 			],
-			"allTests": [
-				{}
-			]
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/pet/findByStatus?status={{status}}",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"pet",
+						"findByStatus"
+					],
+					"query": [
+						{
+							"key": "status",
+							"value": "{{status}}"
+						}
+					]
+				}
+			},
+			"response": []
 		},
 		{
-			"id": "6593771f-5efc-40f2-8486-a77273af5655",
 			"name": "PlaceAnOrderForPet",
-			"url": "https://petstore.swagger.io/v2/store/order",
-			"time": 550,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {},
-			"testPassFailCounts": {},
-			"times": [
-				550
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "2284e83c-b28f-4479-8039-8c1a0d295563",
+						"exec": [
+							"var resp = pm.response.json();\r",
+							"\r",
+							"console.log(pm.response.json())\r",
+							"pm.environment.set(\"order_id\", resp.id);\r",
+							"console.log(pm.environment.get(\"order_id\"));\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
 			],
-			"allTests": [
-				{}
-			]
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": 10,\r\n  \"petId\": \"{{pet_id}}\",\r\n  \"quantity\": 0,\r\n  \"shipDate\": \"2020-12-11T13:46:31.349Z\",\r\n  \"status\": \"placed\",\r\n  \"complete\": true\r\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/store/order",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"store",
+						"order"
+					]
+				}
+			},
+			"response": []
 		}
 	],
-	"count": 1,
-	"totalTime": 2142,
-	"collection": {
-		"requests": [
+	"auth": {
+		"type": "apikey",
+		"apikey": [
 			{
-				"id": "870ff0fd-ed1c-4a33-8fde-0a7d261eda8b",
-				"method": "GET"
+				"key": "value",
+				"value": "special-key",
+				"type": "string"
 			},
 			{
-				"id": "6593771f-5efc-40f2-8486-a77273af5655",
-				"method": "POST"
+				"key": "key",
+				"value": "SWAGGER_API_KEY",
+				"type": "string"
 			}
 		]
-	}
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "d93d1805-8d55-4769-8c1f-e6eeb8f95189",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "1baace20-a480-4900-832c-b366fe0497d2",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
 }
