@@ -1,18 +1,19 @@
 # Swagger
 This repository is created to upload API tests for Problem statement provided by Steerlean Consultancy for Coding Assignment for API Automation Tester position
 
-# Commit : 1 * Postman Collection with below requests : Swagger.FindPetByStatusAndPlaceOrderForSame.json
+# Commit : 1 * Postman Collection for workflow test : Find Pet by status "available" and place order for the same
+   ## Swagger.FindPetByStatusAndPlaceOrderForSame.json
     {{base_url}} - environment variable for : https://petstore.swagger.io/v2
     {{status}} - environment variable for : status = "Available"
-  
-##  1.Find a pet by {{status}} : 
+> Requests Tested  
+###  1.Find a pet by {{status}} : 
         method :  GET
         request url :  {{base_url}}/pet/findByStatus?status={{status}}
         response : loop through the response containing all "available" pets and fetch one pet_id and set it into enviromnemt variable - {{pet_id}}
     Description : Finding a pet by status "Available" - passed as environment variable - {{status}}
                      Then set the pet id found in above request as environment variable - {{pet_id}}
 
-## 2. Place order for the {{status}} pet in a store : 
+### 2. Place order for the {{status}} pet in a store : 
         Method : POST
         content-type : application/json
         Body : 
@@ -37,7 +38,9 @@ This repository is created to upload API tests for Problem statement provided by
           }
 
 
-# Commit :2 * Postman Collection with below requests : Swagger.AddPetAndPlaceOrderForSame.json
+# Commit :2 * Postman Collection for workflow test : Add a pet to the store and place an order
+## Swagger.AddPetAndPlaceOrderForSame.json
+> Requests Tested
 ## 1.Add a Pet to the store : 
         method :  POST
         request url :  {{base_url}}/pet
@@ -117,3 +120,38 @@ This repository is created to upload API tests for Problem statement provided by
             {{order_id}} : pm.environment.set("order_id", resp.id);
             {{status}}  : Available (sold)
  
+# Commit :4 * Postman Collection with below requests :Swagger.postman_collection.json
+## 1. Add a pet to store : 
+        request url : {{base_url}}/pet
+        method : post
+        request body : {{sample request}}
+        content-type : application/json
+        
+## 2. Update an existing pet
+        request url : {{base_url}}/pet
+        method : put
+        request body : {{sample request with update information}}
+        content-type :application/json
+ ## 3. find pet by status 
+        request url : {{base_url}}/pet/findByStatus?status={{status}}
+        method : GET
+ ## 4. update a pet in the store with form data
+        request url : {{base_url}}/pet/{{pet_id}}
+        method : post
+        Content-Type: application/x-www-form-urlencoded
+        Request params : petId, name, status
+ ## 5. Delete a pet
+        request url : {{base_url}}/pet/{{pet_id}}
+        method : DELETE
+ ## 6. Place order for a pet
+        request url : {{base_url}}/store/order
+        method : put
+        request body : {
+                          "id": 10,
+                          "petId": "{{pet_id}}",
+                          "quantity": 0,
+                          "shipDate": "2020-12-11T13:46:31.349Z",
+                          "status": "placed",
+                          "complete": true
+                        }
+        content-type :application/json
