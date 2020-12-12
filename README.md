@@ -1,7 +1,7 @@
 # Swagger
 This repository is created to upload API tests for Problem statement provided by Steerlean Consultancy for Coding Assignment for API Automation Tester position
 
-# Commit : 1 * Postman Collection with below requests :
+# Commit : 1 * Postman Collection with below requests : Swagger.FindPetByStatusAndPlaceOrderForSame.json
     {{base_url}} - environment variable for : https://petstore.swagger.io/v2
     {{status}} - environment variable for : status = "Available"
   
@@ -12,7 +12,7 @@ This repository is created to upload API tests for Problem statement provided by
     Description : Finding a pet by status "Available" - passed as environment variable - {{status}}
                      Then set the pet id found in above request as environment variable - {{pet_id}}
 
-## 2. Place order for the {{status}} pet in a store :
+## 2. Place order for the {{status}} pet in a store : 
         Method : POST
         content-type : application/json
         Body : 
@@ -37,7 +37,7 @@ This repository is created to upload API tests for Problem statement provided by
           }
 
 
-# Commit :2 * Postman Collection with below requests :
+# Commit :2 * Postman Collection with below requests : Swagger.AddPetAndPlaceOrderForSame.json
 ## 1.Add a Pet to the store : 
         method :  POST
         request url :  {{base_url}}/pet
@@ -111,5 +111,9 @@ This repository is created to upload API tests for Problem statement provided by
                     "complete": true
                 }
 
-
-
+# Commit :3 * Postman Collection with environment variables : Swagger.postman_environment.json
+            {{base_url}} :  https://petstore.swagger.io/v2
+            {{pet_id}} : pm.environment.set("pet_id", resp.id);
+            {{order_id}} : pm.environment.set("order_id", resp.id);
+            {{status}}  : Available (sold)
+ 
