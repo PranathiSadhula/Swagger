@@ -155,3 +155,18 @@ This repository is created to upload API tests for Problem statement provided by
                           "complete": true
                         }
         content-type :application/json
+   ## 7. Find purchase order by ID
+        request url : {{base_url}}/store/order/{{order_id}}
+        method : GET
+        sample response :
+               {
+                   "id": 1,
+                   "petId": 124,
+                   "quantity": 1,
+                   "shipDate": "2020-12-12T17:18:30.000+0000",
+                   "status": "placed",
+                   "complete": false
+               }
+   ## 8. Delete a purchase order by ID
+        request url : {{base_url}}/store/order/{{order_id}}
+        method : DELETE   
