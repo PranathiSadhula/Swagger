@@ -1,0 +1,20 @@
+<testsuite failures="1" name="src/main/java/karate/UpdatePet.feature" skipped="0" tests="1" time="4.795152">
+  <testcase classname="src.main.java.karate.UpdatePet" name="Update pet" time="4.795152">
+    <failure message="UpdatePet.feature:11 - javascript evaluation failed: = { id: '#(pet_id)', status: 'sold' }, &lt;eval&gt;:1:0 Expected an operand but found =&#13;&#10;= { id: '#(pet_id)', status: 'sold' }&#13;&#10;^ in &lt;eval&gt; at line number 1 at column number 0">* def resp = call read('AddnewPet.feature') ............................... passed
+* def pet_id = resp.id .................................................... passed
+* print resp .............................................................. passed
+Given url 'https://petstore.swagger.io/v2/pet' ............................ passed
+And header Accept = 'application/json' .................................... passed
+And header Content-Type = 'application/json' .............................. passed
+When request = { id: '#(pet_id)', status: 'sold' } ........................ failed
+
+Stack Trace:
+com.intuit.karate.exception.KarateException: UpdatePet.feature:11 - javascript evaluation failed: = { id: '#(pet_id)', status: 'sold' }, &lt;eval&gt;:1:0 Expected an operand but found =&#13;
+= { id: '#(pet_id)', status: 'sold' }&#13;
+^ in &lt;eval&gt; at line number 1 at column number 0&#13;
+	at ✽.When request = { id: '#(pet_id)', status: 'sold' } (UpdatePet.feature:11)&#13;
+
+And method put ............................................................ skipped
+Then status 200 ........................................................... skipped</failure>
+  </testcase>
+</testsuite>

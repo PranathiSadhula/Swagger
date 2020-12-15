@@ -1,0 +1,92 @@
+12:58:26.505 skipping bootstrap configuration: could not find or read file: classpath:karate-config.js
+12:58:29.519 request:
+1 > POST https://petstore.swagger.io/v2/pet
+1 > Accept: application/json
+1 > Accept-Encoding: gzip,deflate
+1 > Connection: Keep-Alive
+1 > Content-Length: 156
+1 > Content-Type: application/json; charset=UTF-8
+1 > Host: petstore.swagger.io
+1 > User-Agent: Apache-HttpClient/4.5.11 (Java/1.8.0_171)
+{"id":0,"category":{"id":0,"name":"Beckiee"},"name":"doggie","photoUrls":["string"],"tags":[{"id":0,"name":"This is a new pet added"}],"status":"available"}
+
+12:58:31.126 response time in milliseconds: 1605.73
+1 < 200
+1 < Access-Control-Allow-Headers: Content-Type, api_key, Authorization
+1 < Access-Control-Allow-Methods: GET, POST, DELETE, PUT
+1 < Access-Control-Allow-Origin: *
+1 < Connection: keep-alive
+1 < Content-Type: application/json
+1 < Date: Tue, 15 Dec 2020 07:28:30 GMT
+1 < Server: Jetty(9.2.9.v20150224)
+1 < Transfer-Encoding: chunked
+{"id":9222968140496868634,"category":{"id":0,"name":"Beckiee"},"name":"doggie","photoUrls":["string"],"tags":[{"id":0,"name":"This is a new pet added"}],"status":"available"}
+
+12:58:31.377 skipping bootstrap configuration: could not find or read file: classpath:karate-config.js
+12:58:31.384 request:
+1 > GET https://petstore.swagger.io/v2/pet/findByStatus?status=avaiable
+1 > Accept-Encoding: gzip,deflate
+1 > Connection: Keep-Alive
+1 > Host: petstore.swagger.io
+1 > User-Agent: Apache-HttpClient/4.5.11 (Java/1.8.0_171)
+
+12:58:32.738 response time in milliseconds: 1351.94
+1 < 200
+1 < Access-Control-Allow-Headers: Content-Type, api_key, Authorization
+1 < Access-Control-Allow-Methods: GET, POST, DELETE, PUT
+1 < Access-Control-Allow-Origin: *
+1 < Connection: keep-alive
+1 < Content-Type: application/json
+1 < Date: Tue, 15 Dec 2020 07:28:32 GMT
+1 < Server: Jetty(9.2.9.v20150224)
+1 < Transfer-Encoding: chunked
+[]
+
+12:58:32.781 skipping bootstrap configuration: could not find or read file: classpath:karate-config.js
+12:58:32.844 request:
+1 > POST https://petstore.swagger.io/v2/pet
+1 > Accept: application/json
+1 > Accept-Encoding: gzip,deflate
+1 > Connection: Keep-Alive
+1 > Content-Length: 156
+1 > Content-Type: application/json; charset=UTF-8
+1 > Host: petstore.swagger.io
+1 > User-Agent: Apache-HttpClient/4.5.11 (Java/1.8.0_171)
+{"id":0,"category":{"id":0,"name":"Beckiee"},"name":"doggie","photoUrls":["string"],"tags":[{"id":0,"name":"This is a new pet added"}],"status":"available"}
+
+12:58:34.174 response time in milliseconds: 1329.07
+1 < 200
+1 < Access-Control-Allow-Headers: Content-Type, api_key, Authorization
+1 < Access-Control-Allow-Methods: GET, POST, DELETE, PUT
+1 < Access-Control-Allow-Origin: *
+1 < Connection: keep-alive
+1 < Content-Type: application/json
+1 < Date: Tue, 15 Dec 2020 07:28:34 GMT
+1 < Server: Jetty(9.2.9.v20150224)
+1 < Transfer-Encoding: chunked
+{"id":9222968140496868635,"category":{"id":0,"name":"Beckiee"},"name":"doggie","photoUrls":["string"],"tags":[{"id":0,"name":"This is a new pet added"}],"status":"available"}
+
+12:58:34.194 [print] 9222968140496868635
+12:58:34.202 request:
+1 > PUT https://petstore.swagger.io/v2/pet
+1 > Accept: application/json
+1 > Accept-Encoding: gzip,deflate
+1 > Connection: Keep-Alive
+1 > Content-Length: 27
+1 > Content-Type: application/json; charset=UTF-8
+1 > Host: petstore.swagger.io
+1 > User-Agent: Apache-HttpClient/4.5.11 (Java/1.8.0_171)
+{"id":null,"status":"sold"}
+
+12:58:35.572 response time in milliseconds: 1368.37
+1 < 200
+1 < Access-Control-Allow-Headers: Content-Type, api_key, Authorization
+1 < Access-Control-Allow-Methods: GET, POST, DELETE, PUT
+1 < Access-Control-Allow-Origin: *
+1 < Connection: keep-alive
+1 < Content-Type: application/json
+1 < Date: Tue, 15 Dec 2020 07:28:35 GMT
+1 < Server: Jetty(9.2.9.v20150224)
+1 < Transfer-Encoding: chunked
+{"id":9222968140496868636,"photoUrls":[],"tags":[],"status":"sold"}
+

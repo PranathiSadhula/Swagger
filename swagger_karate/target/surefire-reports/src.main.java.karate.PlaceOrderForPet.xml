@@ -1,0 +1,15 @@
+<testsuite failures="0" name="src/main/java/karate/PlaceOrderForPet.feature" skipped="0" tests="1" time="7.261384">
+  <testcase classname="src.main.java.karate.PlaceOrderForPet" name="place order for pet_id +'#(pet_id)'" time="7.261384">
+    <system-out>* def resp = call read('AddnewPet.feature') ............................... passed
+* def pet_id = resp.id .................................................... passed
+* print resp.response.id .................................................. passed
+Given url 'https://petstore.swagger.io/v2/store/order' .................... passed
+And header Accept = 'application/json' .................................... passed
+And header Content-Type = 'application/json' .............................. passed
+When request read('order.json') ........................................... passed
+And method post ........................................................... passed
+Then status 200 ........................................................... passed
+And def order_id = response.id ............................................ passed
+And print '#(order_id)' ................................................... passed</system-out>
+  </testcase>
+</testsuite>

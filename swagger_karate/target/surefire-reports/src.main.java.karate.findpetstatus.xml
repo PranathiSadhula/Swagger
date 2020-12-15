@@ -1,0 +1,12 @@
+<testsuite failures="1" name="src/main/java/karate/findpetstatus.feature" skipped="0" tests="1" time="3.6688">
+  <testcase classname="src.main.java.karate.findpetstatus" name="Fetch Pet status" time="3.6688">
+    <failure message="findpetstatus.feature:8 - status code was: 200, expected: 201, response time: 2022, url: https://petstore.swagger.io/v2/pet/findByStatus?status=avaiable, response: []">Given url 'https://petstore.swagger.io/v2/pet/findByStatus' ............... passed
+When param status = 'avaiable' ............................................ passed
+And method get ............................................................ passed
+Then status 201 ........................................................... failed
+
+Stack Trace:
+com.intuit.karate.exception.KarateException: findpetstatus.feature:8 - status code was: 200, expected: 201, response time: 2022, url: https://petstore.swagger.io/v2/pet/findByStatus?status=avaiable, response: []&#13;
+	at ✽.Then status 201 (findpetstatus.feature:8)</failure>
+  </testcase>
+</testsuite>
