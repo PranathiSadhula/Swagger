@@ -1,6 +1,4 @@
 # Swagger
-This repository is created to upload API tests for Problem statement provided by Steerlean Consultancy for Coding Assignment for API Automation Tester position
-
 # Commit : 1 * Postman Collection for workflow test : Find Pet by status "available" and place order for the same
    ## Swagger.FindPetByStatusAndPlaceOrderForSame.json
     {{base_url}} - environment variable for : https://petstore.swagger.io/v2
